@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Anaconda安装及使用问题</title>
+      <link href="2021/01/16/anaconda-an-zhuang-ji-shi-yong-wen-ti/"/>
+      <url>2021/01/16/anaconda-an-zhuang-ji-shi-yong-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p>本文内容为在Anaconda安装及使用时遇到的问题，具体下载、安装、环境配置、换源和.condarc文件处理网上有方案，在此不多赘述。  </p><h2 id="换源后报错CondaHTTPError-HTTP-000-CONNECTION-FAILED解决方案"><a href="#换源后报错CondaHTTPError-HTTP-000-CONNECTION-FAILED解决方案" class="headerlink" title="换源后报错CondaHTTPError: HTTP 000 CONNECTION FAILED解决方案"></a>换源后报错CondaHTTPError: HTTP 000 CONNECTION FAILED解决方案</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><pre class=" language-bash"><code class="language-bash">Collecting package metadata <span class="token punctuation">(</span>current_repodata.json<span class="token punctuation">)</span>: failedCondaHTTPError: HTTP 000 CONNECTION FAILED <span class="token keyword">for</span> url <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/current_repodata.json<span class="token operator">></span>Elapsed: -An HTTP error occurred when trying to retrieve this URL.HTTP errors are often intermittent, and a simple retry will get you on your way.SSLError<span class="token punctuation">(</span>MaxRetryError<span class="token punctuation">(</span><span class="token string">'HTTPSConnectionPool(host=\'mirrors.tuna.tsinghua.edu.cn\', port=443): Max retries exceeded with url: /anaconda/pkgs/main/linux-64/current_repodata.json (Caused by SSLError(SSLError("bad handshake: Error([(\'SSL routines\', \'tls_process_server_certificate\', \'certificate verify failed\')])")))'</span><span class="token punctuation">))</span></code></pre><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>关闭conda的ssl验证即可，在Anaconda Prompt中输入命令  </p><pre class=" language-bash"><code class="language-bash">conda config --set ssl_verify <span class="token boolean">false</span></code></pre>  <h2 id="Conda-Downloaded-bytes-did-not-match-Content-Length问题解决方案"><a href="#Conda-Downloaded-bytes-did-not-match-Content-Length问题解决方案" class="headerlink" title="Conda-Downloaded bytes did not match Content-Length问题解决方案"></a>Conda-Downloaded bytes did not match Content-Length问题解决方案</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><pre class=" language-bash"><code class="language-bash">CondaError: Downloaded bytes did not match Content-Lengthurl: https://repo.anaconda.com/pkgs/main/linux-64/cudnn-7.0.5-cuda8.0_0.tar.bz2target_path: /home/yyf/miniconda3/pkgs/cudnn-7.0.5-cuda8.0_0.tar.bz2Content-Length: 261398285downloaded bytes: 47463195</code></pre><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>一共有三个方案，灵活使用<br><strong>1.</strong> 再次换源<br><strong>2.</strong> 调高conda下载的timeout，再进行尝试，时长不够可以设置大点.<br>在Anaconda Prompt中输入命令  </p><pre class=" language-bash"><code class="language-bash">conda config --set remote_read_timeout_secs 600.0</code></pre><p><strong>3.</strong> 从conda的源下载好要安装的包，直接采用本地安装的方式。  <a href="https://repo.anaconda.com/pkgs/main">下载地址</a><br>在Anaconda Prompt中输入命令  </p><pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> --offline ./包名</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> tool </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>My First Blog</title>
       <link href="2021/01/15/my-first-blog/"/>
       <url>2021/01/15/my-first-blog/</url>
