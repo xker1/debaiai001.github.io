@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MySQL学习笔记</title>
+      <link href="2021/03/17/mysql-xue-xi-bi-ji/"/>
+      <url>2021/03/17/mysql-xue-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<p>本文使用的是MySQL，内容为学习<a href="https://www.w3school.com.cn/sql">SQL语句</a>期间遇到的问题。</p><h2 id="MySQL-与-charlist-通配符"><a href="#MySQL-与-charlist-通配符" class="headerlink" title="MySQL 与 [charlist]% 通配符"></a>MySQL 与 [charlist]% 通配符</h2><p>按照提示使用如下语句匹配不到结果</p><pre class=" language-bash"><code class="language-bash"><span class="token keyword">select</span> * from persons where city like <span class="token string">'[ALN]%'</span></code></pre><p>这种语法在MySQL中不适用，必须以正则表达式代替，正确语句如下(regexp或者rlike关键字均可)</p><pre class=" language-bash"><code class="language-bash"><span class="token keyword">select</span> * from persons where city rlike <span class="token string">'^[ALN]%'</span><span class="token punctuation">;</span><span class="token keyword">select</span> * from persons where city regexp <span class="token string">'^[ALN]%'</span><span class="token punctuation">;</span></code></pre><p>如果需要区分大小写，使用binary关键字</p><pre class=" language-bash"><code class="language-bash"><span class="token keyword">select</span> * from persons where city rlike binary <span class="token string">'^[ALN]%'</span><span class="token punctuation">;</span></code></pre><p>需要的是非A，非N，非L开头的数据，在关键字前加入 ^</p><pre class=" language-bash"><code class="language-bash"><span class="token keyword">select</span> * from persons where city rlike <span class="token string">'^[^ALN]%'</span><span class="token punctuation">;</span></code></pre><p>转载于:<a href="https://www.cnblogs.com/cherrysu/p/8023371.html">https://www.cnblogs.com/cherrysu/p/8023371.html</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Anaconda安装及使用问题</title>
       <link href="2021/01/16/anaconda-an-zhuang-ji-shi-yong-wen-ti/"/>
       <url>2021/01/16/anaconda-an-zhuang-ji-shi-yong-wen-ti/</url>
